@@ -1,13 +1,13 @@
-
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
 
 function App() {
-  
-
   return (
     <>
-    <h1 className="bg-red-500">hello duniya</h1>
+      <Home/>
     </>
   )
 }
 
-export default App
+export default App;
