@@ -6,8 +6,8 @@ const Login = () => {
         <div className="login-container">
             <h1>SignUp Form</h1>
             <form action="">
-                <label>UserName:</label>
-                <input type="text" placeholder="Enter Your Username"/>
+                <label>Name:</label>
+                <input type="text" placeholder="Enter Your Name"/>
                 <label>Email:</label>
                 <input type="text" placeholder="Enter your Email" required/>
                 <label>Password:</label>
