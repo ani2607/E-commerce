@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from "react-router-dom"
 function Card() {
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-2xl dark:bg-gray-800 dark:border-gray-700 inline-block m-2">
+    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-2xl dark:bg-gray-800 dark:border-gray-700 inline-block m-3">
     <Link  to="/login">
     <img className="rounded-t-lg object-fill" src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg" alt="Item Image" />
     <div className="p-5">
