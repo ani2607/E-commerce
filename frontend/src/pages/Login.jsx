@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
     return(
         <div className="login-container bg-gray-800">
-            <h1>Login Form</h1>
+            <h1 className="underline">Login Form</h1>
             <form action="/">
                 <label className="mr-9">Email:</label>
                 <input className="text-center" type="text" placeholder="Enter your Email" required/>

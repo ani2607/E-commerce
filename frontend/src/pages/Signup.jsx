@@ -38,7 +38,7 @@ const Login = () => {
     return(
         <div className="login-container">
             <h1>SignUp Form</h1>
-            <form >
+            <form action="/login">
                 <label className="mr-8">Name:</label>
                 <input className="text-center" type="text" placeholder="Enter Name" required value={username}   onChange={(e)=> setUserName(e.target.value)} />
 
