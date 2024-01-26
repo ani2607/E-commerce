@@ -2,7 +2,7 @@
 // import Button from "../components/button";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,Navigate } from "react-router-dom";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
@@ -11,6 +11,7 @@ const Signup = () => {
     const [username , setUserName] = useState('');
     const [email , setEmail] = useState('');
     const [password , setPassword] = useState('');
+    const [navigate,setNavigate] = useState(false);
     const data = {
         'username' : username,
         'password' : password,
@@ -26,14 +27,22 @@ const Signup = () => {
                 headers: {"Content-Type": "application/json"},
                 body:JSON.stringify(data)
             })
+            if(res.status === "300"){
+                alert("Please enter correct email");
+            }
             console.log(res);
             setUserName('');
             setEmail('');
             setPassword('');
+            setNavigate(true);
         } catch (error) {
             alert(error.message);
         }
 
+    }
+
+    if(navigate){
+        return <Navigate to={'/login'} />
     }
     return(
         <div className="login-container">

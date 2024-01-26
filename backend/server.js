@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import express from 'express';
-import bodyParser from "body-parser";
 import databaseConnection from './database/db.js';
 import loginRoute from './router/User/loginRoute.js';
 import signupRoute from './router/User/signupRoute.js'
@@ -18,7 +17,7 @@ databaseConnection();
 app.use(cors({
     origin : '*'
 })); 
-app.use(bodyParser.json());
+app.use(express.json());
 
 // routers
 app.use('/login',loginRoute);
