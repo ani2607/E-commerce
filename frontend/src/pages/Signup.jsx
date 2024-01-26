@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
-const Login = () => {
+const Signup = () => {
 
     const [username , setUserName] = useState('');
     const [email , setEmail] = useState('');
@@ -54,4 +54,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Signup;
