@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
     return(
-        <div className="login-container">
+        <div className="login-container bg-gray-800">
             <h1>Login Form</h1>
             <form action="/">
                 <label className="mr-9">Email:</label>

@@ -1,17 +1,19 @@
-import React from 'react'
+import React from 'react';
 import Card from "./Card";
-import Header from "./Header"
+import Header from "./Header";
 
 function ListItem({title}) {
   return (
     <div>
       <Header title={title}/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
+      <div className='text-center'>
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/>
+        </div>
     </div>
   )
 }

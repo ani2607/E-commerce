@@ -1,9 +1,9 @@
 const Navbar = () => {
     return (
-      <nav className="flex w-full flex-nowrap items-center justify-between bg-[#ffffff] shadow-lg focus:text-neutral-700 lg:flex-wrap lg:py-4">
+      <nav className="flex w-full flex-nowrap items-center justify-between bg-gray-700 shadow-lg focus:text-neutral-700 lg:flex-wrap lg:py-4 fixed z-10">
         <div className="flex w-full flex-wrap items-center justify-between px-3">
           <div className="ml-2">
-            <a className="text-3xl text-neutral-800 dark:text-neutral-200" href="/">Ecommerce</a>
+            <a className="text-4xl" href="/">Ecommerce</a>
           </div>
           <ul className="list-style-none mr-100 flex flex-col pl-0 lg:flex-row text-xl" >
             <li className="my-0 pl-2 px-2">
