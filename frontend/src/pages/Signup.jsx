@@ -8,12 +8,12 @@ const Login = () => {
         <div className="login-container">
             <h1>SignUp Form</h1>
             <form action="/login">
-                <label>Name:</label>
-                <input type="text" placeholder="Enter Your Name"/>
-                <label>Email:</label>
-                <input type="text" placeholder="Enter your Email" required/>
+                <label className="mr-8">Name:</label>
+                <input className="text-center" type="text" placeholder="Enter Name"/>
+                <label className="mr-9">Email:</label>
+                <input className="text-center" type="text" placeholder="Enter Email" required/>
                 <label>Password:</label>
-                <input type="password" placeholder="Enter your Password" required/>
+                <input className="text-center" type="password" placeholder="Enter Password" required/>
                 <button type="submit">SignUp</button>
             </form>
             <Link className="login-footer-text" to="/login">Login?</Link>
