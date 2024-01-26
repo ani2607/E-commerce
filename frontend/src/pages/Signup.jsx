@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
     return(
         <div className="login-container">
-            <h1>SignUp Form</h1>
+            <h1 className="underline">SignUp Form</h1>
             <form action="/login">
                 <label className="mr-8">Name:</label>
                 <input className="text-center" type="text" placeholder="Enter Name"/>

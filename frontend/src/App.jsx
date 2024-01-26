@@ -1,7 +1,9 @@
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Item from "./pages/Item";
 import {Routes,Route} from 'react-router-dom';
+import AddItem from "./pages/AddItem";
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
+        <Route path="/card" element={<Item/>}/>
+        <Route path="/additem" element={<AddItem/>}/>
       </Routes>
     </div>
   )
