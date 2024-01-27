@@ -1,9 +1,10 @@
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import Item from "./pages/Item";
+import Product from "./pages/Product";
 import {Routes,Route} from 'react-router-dom';
 import AddItem from "./pages/AddItem";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
-        <Route path="/card" element={<Item/>}/>
+        <Route path="/product" element={<Product/>}/>
         <Route path="/additem" element={<AddItem/>}/>
+        <Route path="/cart" element={<Cart/>}/>
       </Routes>
     </div>
   )
