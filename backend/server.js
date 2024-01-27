@@ -4,6 +4,7 @@ import databaseConnection from './database/db.js';
 import loginRoute from './router/User/loginRoute.js';
 import signupRoute from './router/User/signupRoute.js'
 import cors from 'cors';
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -15,9 +16,12 @@ const port = process.env.PORT || 3000;
 databaseConnection();
 
 app.use(cors({
-    origin : '*'
+    origin : 'http://localhost:5173',
+    credentials : true
+    
 })); 
 app.use(express.json());
+app.use(cookieParser());
 
 // routers
 app.use('/login',loginRoute);

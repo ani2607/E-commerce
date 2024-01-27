@@ -27,7 +27,7 @@ router.post('/',async(req,res)=>{
             email,
             password : enPassword
         })
-        console.log(respond);
+        // console.log(respond);
 
         res.status(200).json({"message" : "user added successfully"});
     } catch (error) {
