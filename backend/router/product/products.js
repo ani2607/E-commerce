@@ -18,20 +18,7 @@ import ProductModel from "../../database/models/product.model.js";
 
 const router = Router();
 
-router.get('/:id',async(req,res)=>{
-    const {id}  = req.params;
-    // console.log(id);
-    try {
-        const result = await ProductModel.findById(id);
-        res.status(200).json(result);
-        // console.log(result);
-    } catch (error) {
-        res.status(400).json({"message" : "no product found"})
-        console.log(error.message);
-    }
-    
 
-})
 
 router.get('/mens',async(req,res)=>{
 
@@ -52,6 +39,20 @@ router.get('/womens',async(req,res)=>{
         res.send(error.message);
         return;
     } 
+})
+
+router.get('/:id',async(req,res)=>{
+    const {id}  = req.params;
+    // console.log(id);
+    try {
+        const result = await ProductModel.find({'_id' : id});
+        res.status(200).json(result);
+        // console.log(result);
+    } catch (error) {
+        res.status(400).json({"message" : "no product found"})
+        console.log(error.message);
+    }  
+
 })
 
 
