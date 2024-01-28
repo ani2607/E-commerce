@@ -40,12 +40,12 @@ function ListItem({title,urlCategory}) {
           { data?.map((item)=>{
             return (
             <Card key={item._id} title={item.title} Desc={item.description}
-            ImageURL={item.imageURL}  />
+            ImageURL={item.imageURL} ProductID={item._id} />
             )
           })}
 
           {!data && (
-            <h1>data is not got</h1>
+            <h1 className="text-3xl mt-[100px]">Loading...</h1>
           )}
           
         </div>
