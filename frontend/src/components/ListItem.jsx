@@ -1,35 +1,52 @@
-import React, { useEffect,useState } from 'react';
+import  { useEffect,useState } from 'react';
 import Card from "./Card";
 import Header from "./Header";
+import PropTypes from 'prop-types';
 const backendURL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 function ListItem({title,urlCategory}) {
-  const [data,setdata] = useState([]);
+  const [data,setData] = useState(null);
 
   useEffect(()=>{
     
-    const getData = async()=>{
-      try{
-      const result = await fetch(`${backendURL}/products/${urlCategory}`);
-      console.log(result);
-      setdata(result);
-    }
-    catch(error){
-      console.log("Error",error);
-    }
+    const getData = ()=>{
+    
+      fetch(`${backendURL}/products/${urlCategory}`)
+      .then((res)=>{
+        return res.json();
+      })
+      .then((product)=>{
+        console.log(product);
+        setData(product);
+      })
+      .catch((err)=>{
+        console.log(err);
+        alert(err.message);
+      })
     }
     getData();  
 
-  },[])
+  },[urlCategory])
+
+  if(data){
+    console.log(data[0]);
+  }
   
   return (
     <div>
       <Header title={title}/>
       <div className='text-center'>
-          {/* {data.map((Item) => {
-            <Card title={Item.title} Desc={Item.description} ImageURL={Item.imageURl} key={ImageURL}/>
-          })} */}
-          hi
+      
+          { data?.map((item)=>{
+            return (
+            <Card key={item._id} title={item.title} Desc={item.description}
+            ImageURL={item.imageURL}  />
+            )
+          })}
+
+          {!data && (
+            <h1>data is not got</h1>
+          )}
           
         </div>
     </div>
@@ -37,3 +54,9 @@ function ListItem({title,urlCategory}) {
 }
 
 export default ListItem
+ListItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  urlCategory : PropTypes.string.isRequired
+};
+
+
