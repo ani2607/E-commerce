@@ -1,4 +1,3 @@
-import React from 'react'
 import ItemHeader from '../components/Product'
 import Navbar from '../components/Navbar'
 

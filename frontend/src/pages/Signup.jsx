@@ -1,9 +1,5 @@
-// import Input from "../components/Input";
-// import Button from "../components/button";
-
 import { useState } from "react";
 import { Link,Navigate } from "react-router-dom";
-
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 const Signup = () => {

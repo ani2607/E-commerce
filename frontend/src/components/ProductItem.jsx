@@ -1,6 +1,6 @@
-import React from 'react';
 import cartImage from '../assets/Cart_White.png';
 import {useState,useEffect} from 'react';
+import PropTypes from 'prop-types';
 const backendURL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 function ProductItem({ProductID}) {
@@ -22,22 +22,22 @@ function ProductItem({ProductID}) {
     };
     getData();
 
-  },[]);
+  },[ProductID]);
 
   const [color,setColor] = useState("flex justify-center pt-1 bg-orange-600 h-10 w-[480px] text-2xl mt-[400px] mx-[10px] rounded-lg hover:bg-orange-700");
   const [CartText,setCartText] = useState('Add to Cart');
 
   const handleCartClick = () => {
 
-    const addItem = fetch(`${backendURL}/products/${id}`,{
-      method:POST,
+    const addItem = fetch(`${backendURL}/products/${ProductID}`,{
+      method : 'POST',
       'content-type' : 'application/json',
-      body : JSON.stringify({ProductID : id}),
+      body : JSON.stringify({ProductID}),
     })
     .then(()=>{
       setColor("flex justify-center pt-1 bg-green-600 h-10 w-[480px] text-2xl mt-[400px] mx-[10px] rounded-lg hover:bg-green-700");
       setCartText("Item Added to Cart");
-      const timer = setTimeout(()=>{
+      setTimeout(()=>{
         setColor("flex justify-center pt-1 bg-orange-600 h-10 w-[480px] text-2xl mt-[400px] mx-[10px] rounded-lg hover:bg-orange-700");
         setCartText("Add to Cart");
       },1000);
@@ -46,8 +46,8 @@ function ProductItem({ProductID}) {
       console.log(error);
     })
 
+    addItem();
   }
-
 
   console.log(data);
   return (
@@ -65,6 +65,8 @@ function ProductItem({ProductID}) {
     </div>
   )
 }
-import { Form } from 'react-router-dom';
 
 export default ProductItem;
+ProductItem.propTypes = {
+  ProductID : PropTypes.string.isRequired,
+}

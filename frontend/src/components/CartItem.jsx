@@ -1,6 +1,5 @@
-import React from 'react'
 import cardImage from '../assets/card-image.avif';
-import Cart from '../assets/Cart_White.png';
+// import Cart from '../assets/Cart_White.png';
 
 function CartItem() {
   return (

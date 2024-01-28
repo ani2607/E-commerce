@@ -1,4 +1,3 @@
-import React from 'react'
 import CardImage from '../assets/card-image.avif';
 
 function ItemHeader() {

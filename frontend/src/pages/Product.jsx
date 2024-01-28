@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import ProductItem from '../components/ProductItem';
 import { useParams } from 'react-router-dom';

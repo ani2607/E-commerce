@@ -1,5 +1,5 @@
-import React from 'react'
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import PropTypes from 'prop-types';
 function Card({title,Desc,ImageURL,ProductID}) {
   const URL = `/product/${ProductID}`;
   return (
@@ -16,4 +16,10 @@ function Card({title,Desc,ImageURL,ProductID}) {
   )
 }
 
-export default Card
+export default Card;
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  Desc: PropTypes.string.isRequired,
+  ImageURL: PropTypes.string.isRequired,
+  ProductID: PropTypes.string.isRequired,
+};

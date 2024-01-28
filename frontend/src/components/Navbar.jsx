@@ -24,6 +24,11 @@ const Navbar = () => {
                 Login
               </Link>
             </li>
+            <li className="my-0 p-1 mr-4">
+              <Link  to="/logout">
+                Logout
+              </Link>
+            </li>
             <li className="my-0 p-1">
               <Link  to="/Cart">
                 <img src={Cart} className="m-0 w-7 h-7" alt="cart"/>
