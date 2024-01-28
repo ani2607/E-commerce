@@ -3,6 +3,7 @@ import express from 'express';
 import databaseConnection from './database/db.js';
 import loginRoute from './router/User/loginRoute.js';
 import signupRoute from './router/User/signupRoute.js'
+import productRoute from './router/product/products.js'
 import cors from 'cors';
 import cookieParser from "cookie-parser";
 
@@ -26,6 +27,7 @@ app.use(cookieParser());
 // routers
 app.use('/login',loginRoute);
 app.use('/signup',signupRoute)
+app.use('/products',productRoute)
 
 
 app.listen(port, () => {
