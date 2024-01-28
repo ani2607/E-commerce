@@ -2,13 +2,14 @@
 // import Button from "../components/button";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,Navigate } from "react-router-dom";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 const Login = () => {
 
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    const [navigate,setNavigate] = useState(false);
     const data = {
         'email' : email,
         'password' : password
@@ -31,6 +32,7 @@ const Login = () => {
 
             setEmail('');
             setPassword('');
+            setNavigate(true);
             console.log(res);
         } catch (error) {
             
@@ -38,6 +40,9 @@ const Login = () => {
         }
     }
 
+    if(navigate){
+        return <Navigate to={'/'} />
+    }
     return(
         <div className="login-container bg-gray-800">
             <h1 className="underline">Login Form</h1>
