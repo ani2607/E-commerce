@@ -7,8 +7,8 @@ const Home = () => {
         <div>
             <Navbar/>
             <Slider/>
-            <ListItem title="Mens Section"/>
-            <ListItem title="Womens Section"/>
+            <ListItem title="Mens Section" urlCategory="mens"/>
+            <ListItem title="Womens Section" urlCategory="womens"/>
         </div>
     );
 }
