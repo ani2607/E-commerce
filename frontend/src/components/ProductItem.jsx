@@ -30,15 +30,25 @@ function ProductItem({ProductID}) {
   const handleCartClick = () => {
 
     const addItem = fetch(`${backendURL}/products/${ProductID}`,{
+<<<<<<< HEAD
       method:'POST',
       'content-type' : 'application/json',
       body : JSON.stringify({ProductID }),
+=======
+      method : 'POST',
+      'content-type' : 'application/json',
+      body : JSON.stringify({ProductID}),
+>>>>>>> 3b08c941d937554defe399bfda6137ce0c14430f
     })
     .then(()=>{
       setColor("flex justify-center pt-1 bg-green-600 h-10 w-[480px] text-2xl mt-[400px] mx-[10px] rounded-lg hover:bg-green-700");
       setCartText("Item Added to Cart");
+<<<<<<< HEAD
       
        setTimeout(()=>{
+=======
+      setTimeout(()=>{
+>>>>>>> 3b08c941d937554defe399bfda6137ce0c14430f
         setColor("flex justify-center pt-1 bg-orange-600 h-10 w-[480px] text-2xl mt-[400px] mx-[10px] rounded-lg hover:bg-orange-700");
         setCartText("Add to Cart");
       },1000);
@@ -48,9 +58,11 @@ function ProductItem({ProductID}) {
     })
 
     addItem();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3b08c941d937554defe399bfda6137ce0c14430f
   }
-
 
   console.log(data);
   return (
@@ -71,5 +83,10 @@ function ProductItem({ProductID}) {
 
 export default ProductItem;
 ProductItem.propTypes = {
+<<<<<<< HEAD
   ProductID: PropTypes.string.isRequired,
 };
+=======
+  ProductID : PropTypes.string.isRequired,
+}
+>>>>>>> 3b08c941d937554defe399bfda6137ce0c14430f
