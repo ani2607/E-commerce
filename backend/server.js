@@ -6,6 +6,7 @@ import signupRoute from './router/User/signupRoute.js'
 import productRoute from './router/product/products.js'
 import cors from 'cors';
 import cookieParser from "cookie-parser";
+// import auth  from './middleware/isAuthenticate.js'
 
 dotenv.config();
 
@@ -23,11 +24,17 @@ app.use(cors({
 })); 
 app.use(express.json());
 app.use(cookieParser());
+// app.use(express.urlencoded());
 
 // routers
 app.use('/login',loginRoute);
 app.use('/signup',signupRoute)
 app.use('/products',productRoute)
+
+app.post('/logout',(req,res)=>{
+
+    res.cookie('token','').json("ok");
+})
 
 
 app.listen(port, () => {

@@ -1,6 +1,8 @@
 import { Router } from "express";
 import ProductModel from "../../database/models/product.model.js";
 
+// import auth  from '../middleware/isAuthenticate.js'
+
 // only for deployment purposes
 // const createProduct = async()=>{
 
@@ -32,6 +34,8 @@ router.get('/mens',async(req,res)=>{
 })
 router.get('/womens',async(req,res)=>{
 
+  
+
     try {
         const result = await ProductModel.find({'category' : 'womens'});
         res.status(200).json(result);
@@ -43,16 +47,32 @@ router.get('/womens',async(req,res)=>{
 
 router.get('/:id',async(req,res)=>{
     const {id}  = req.params;
+    const {token} = req.cookies;
+    console.log(token);
     // console.log(id);
     try {
         const result = await ProductModel.find({'_id' : id});
         res.status(200).json(result);
-        // console.log(result);
+        // console.log(result)
+
     } catch (error) {
         res.status(400).json({"message" : "no product found"})
         console.log(error.message);
     }  
+})
+router.post('/:id',async(req,res)=>{
+    const {id}  = req.params;
+    // console.log(id);
+    try {
+        // const result = await ProductModel.find({'_id' : id});
+        // res.status(200).json(result);
+        // console.log(result)
+        
 
+    } catch (error) {
+        res.status(400).json({"message" : "no product found"})
+        console.log(error.message);
+    }  
 })
 
 
