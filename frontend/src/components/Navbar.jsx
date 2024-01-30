@@ -1,7 +1,34 @@
+import { useState } from 'react';
 import Cart from '../assets/Cart_White.png';
-import {Link} from 'react-router-dom';
+import {Link,Navigate} from 'react-router-dom';
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 const Navbar = () => {
+
+  const [navigate,setNavigate] = useState(false);
+
+
+  const handleLogout = async()=>{
+    
+    try {
+      const result  = await fetch(`${backendUrl}/logout`,{
+        method : 'POST',
+        credentials : 'include'
+      });
+      console.log(result)
+      setNavigate(true);
+    } catch (error) {
+      console.log(error);
+      alert("Error while logging out");
+    }
+    
+    
+  }
+
+  if(navigate){
+    return <Navigate to={'/login'} />
+  }
+
     return (
       <nav className="flex w-full flex-nowrap items-center justify-between bg-gray-700 shadow-lg focus:text-neutral-700 lg:flex-wrap lg:py-4 fixed z-10 mb-10">
         <div className="flex w-full flex-wrap items-center justify-between px-3 mt-0">
@@ -25,9 +52,9 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="my-0 p-1 mr-4">
-              <Link  to="/logout">
-                Logout
-              </Link>
+              <button onClick={handleLogout} >
+               Logout
+              </button>
             </li>
             <li className="my-0 p-1">
               <Link  to="/Cart">

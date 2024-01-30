@@ -1,7 +1,11 @@
 import { Router } from "express";
 import ProductModel from "../../database/models/product.model.js";
+import jwt from 'jsonwebtoken'
+import dotenv from "dotenv";
+import isAuth  from '../../middleware/authentication.js'
+dotenv.config();
+const secret= process.env.SECRETKEY;
 
-// import auth  from '../middleware/isAuthenticate.js'
 
 // only for deployment purposes
 // const createProduct = async()=>{
@@ -45,10 +49,12 @@ router.get('/womens',async(req,res)=>{
     } 
 })
 
-router.get('/:id',async(req,res)=>{
+router.get('/:id',isAuth,async(req,res)=>{
     const {id}  = req.params;
     const {token} = req.cookies;
-    console.log(token);
+    // console.log(token);
+    const result =  jwt.verify(token,secret);
+    // console.log(result);
     // console.log(id);
     try {
         const result = await ProductModel.find({'_id' : id});
@@ -60,13 +66,14 @@ router.get('/:id',async(req,res)=>{
         console.log(error.message);
     }  
 })
-router.post('/:id',async(req,res)=>{
+router.post('/:id',isAuth,async(req,res)=>{
     const {id}  = req.params;
     // console.log(id);
     try {
         // const result = await ProductModel.find({'_id' : id});
         // res.status(200).json(result);
         // console.log(result)
+        console.log(id);
         
 
     } catch (error) {
