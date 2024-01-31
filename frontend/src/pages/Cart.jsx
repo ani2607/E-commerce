@@ -1,7 +1,23 @@
 import Navbar from '../components/Navbar';
 import CartItem from '../components/CartItem';
+import { useEffect, useState } from 'react';
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 function Cart() {
+  const [items,setItems] = useState([]);
+  useEffect(()=>{
+
+    const getCartItems = async()=>{
+      const res = await  fetch(`${backendUrl}/cart`,{
+        credentials : "include"
+      });
+      setItems(res);
+      console.log(res);
+    }
+    getCartItems();
+  },[])
+  /* items array has all the products the user had added to cart*/
+
   return (
     <div className=''>
       <Navbar className="m-0"/>

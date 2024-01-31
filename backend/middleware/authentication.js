@@ -16,8 +16,6 @@ const secret= process.env.SECRETKEY;
         const result =  jwt.verify(token,secret);
         // console.log(result.dbEmail);
         // console.log(result.dbUsername);
-        
-
     } catch (error) {
         console.log(error);
         res.status(401).json({"message" : "Unauthorized user"});

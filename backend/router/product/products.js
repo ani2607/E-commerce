@@ -1,4 +1,5 @@
 import { Router } from "express";
+import UserModel from "../../database/models/user.model.js";
 import ProductModel from "../../database/models/product.model.js";
 import jwt from 'jsonwebtoken'
 import dotenv from "dotenv";
@@ -51,11 +52,7 @@ router.get('/womens',async(req,res)=>{
 
 router.get('/:id',isAuth,async(req,res)=>{
     const {id}  = req.params;
-    const {token} = req.cookies;
-    // console.log(token);
-    const result =  jwt.verify(token,secret);
-    // console.log(result);
-    // console.log(id);
+    
     try {
         const result = await ProductModel.find({'_id' : id});
         res.status(200).json(result);
@@ -66,14 +63,25 @@ router.get('/:id',isAuth,async(req,res)=>{
         console.log(error.message);
     }  
 })
+
 router.post('/:id',isAuth,async(req,res)=>{
     const {id}  = req.params;
+    const {token} = req.cookies 
+    // user id is extracted from the token as our jwt token contain username,userid,email as their payload
+
+    const decode = jwt.verify(token,secret);
+    const userId = decode.id;
+
     // console.log(id);
     try {
-        // const result = await ProductModel.find({'_id' : id});
-        // res.status(200).json(result);
-        // console.log(result)
-        console.log(id);
+
+        const cartArray = await UserModel.findById(userId); // getting the old cart items
+        const updatedCartArray = [...cartArray.cartItems,id];
+
+        const result = await UserModel.findOneAndUpdate({'_id' : userId},{'cartItems' : updatedCartArray},{new : true}); // updating the userSchema with the new cartItems 
+        // console.log(result);
+        res.status(200).json({"message" : "successfully added to cart"});
+        
         
 
     } catch (error) {

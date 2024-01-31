@@ -4,6 +4,7 @@ import databaseConnection from './database/db.js';
 import loginRoute from './router/User/loginRoute.js';
 import signupRoute from './router/User/signupRoute.js'
 import productRoute from './router/product/products.js'
+import cartRoute from './router/cart/cart.js'
 import cors from 'cors';
 import cookieParser from "cookie-parser";
 import isAuth  from './middleware/authentication.js'
@@ -30,6 +31,7 @@ app.use(cookieParser());
 app.use('/login',loginRoute);
 app.use('/signup',signupRoute)
 app.use('/products',productRoute)
+app.use('/cart',isAuth,cartRoute);
 
 app.post('/logout',isAuth,(req,res)=>{
 

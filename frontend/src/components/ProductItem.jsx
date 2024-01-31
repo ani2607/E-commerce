@@ -5,6 +5,9 @@ const backendURL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 function ProductItem({ProductID}) {
   const [data,setData] = useState(null);
+  const [color,setColor] = useState("flex justify-center pt-1 bg-orange-600 h-10 w-[480px] text-2xl mt-[400px] mx-[10px] rounded-lg hover:bg-orange-700");
+  const [CartText,setCartText] = useState('Add to Cart');
+
 
   useEffect(()=>{
     const getData = ()=>{
@@ -28,8 +31,6 @@ function ProductItem({ProductID}) {
 
   },[ProductID]);
 
-  const [color,setColor] = useState("flex justify-center pt-1 bg-orange-600 h-10 w-[480px] text-2xl mt-[400px] mx-[10px] rounded-lg hover:bg-orange-700");
-  const [CartText,setCartText] = useState('Add to Cart');
 
   const handleCartClick = () => {
 
@@ -49,6 +50,7 @@ function ProductItem({ProductID}) {
     })
     .catch((error)=>{
       console.log(error);
+      alert("Error while adding the product to Cart");
     })
 
     addItem();
