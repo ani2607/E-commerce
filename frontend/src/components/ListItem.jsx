@@ -11,12 +11,16 @@ function ListItem({title,urlCategory}) {
     
     const getData = ()=>{
     
-      fetch(`${backendURL}/products/${urlCategory}`)
+      fetch(`${backendURL}/products/${urlCategory}`,{
+        method : 'GET',
+        headers: {"Content-Type": "application/json"},
+        credentials : "include"
+      })
       .then((res)=>{
         return res.json();
       })
       .then((product)=>{
-        console.log(product);
+        // console.log(product);
         setData(product);
       })
       .catch((err)=>{
@@ -28,9 +32,6 @@ function ListItem({title,urlCategory}) {
 
   },[urlCategory])
 
-  if(data){
-    console.log(data[0]);
-  }
   
   return (
     <div>
