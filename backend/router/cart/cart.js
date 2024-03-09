@@ -31,7 +31,7 @@ router.get('/',async(req,res)=>{
             })
          });
          console.log("user cart item");
-         console.log(userCartItem);
+        //  console.log(userCartItem);
          res.status(200).json(userCartItem);
 
     } catch (error) {
