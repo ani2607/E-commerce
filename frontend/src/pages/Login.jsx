@@ -41,7 +41,7 @@ const Login = () => {
         return <Navigate to={'/'} />
     }
     return(
-    <div className="bg-gray-900 w-full md:w-96 h-auto mx-auto mt-10 border-3 border-black rounded-3xl shadow-2xl p-6">
+    <div className="bg-gray-900 w-full md:w-96 h-auto mx-auto mt-32 border-3 border-black rounded-3xl shadow-2xl p-6 ">
         <h1 className="font-bold text-4xl text-center mt-2 mb-5">E-commerce</h1>
         <form>
             <div className="mb-3">
