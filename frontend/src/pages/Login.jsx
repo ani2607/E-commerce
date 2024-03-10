@@ -47,7 +47,7 @@ const Login = () => {
             <div className="mb-3">
             <label className=" text-2xl mb-1 block">Email:</label>
             <input
-                className=" text-xl w-full border-2 border-black rounded-md px-4 py-2 text-gray-800"
+                className=" text-xl w-full border-2 border-black rounded-md px-4 py-2 text-gray-800 outline-none"
                 type="text"
                 placeholder="example@gmail.com"
                 required
@@ -58,7 +58,7 @@ const Login = () => {
             <div className="mb-3">
             <label className=" text-2xl mb-1 block">Password:</label>
             <input
-                className=" text-xl w-full border-2 border-black rounded-md px-4 py-2 text-gray-800"
+                className=" text-xl w-full border-2 border-black rounded-md px-4 py-2 text-gray-800 outline-none"
                 id="hs-toggle-password-multi-toggle-np"
                 type="password"
                 placeholder="Password"
@@ -68,7 +68,7 @@ const Login = () => {
             />
             </div>
             <button
-            className="text-2xl block border-3 border-black bg-gray-700 hover:bg-gray-600 rounded-md w-full mb-2 mt-6 py-2 focus:outline-none"
+            className="text-2xl block border-3 border-black bg-gray-700 hover:bg-gray-600 rounded-md w-full mb-2 mt-6 py-2 focus:outline-none outline-none"
             onClick={loginUser}
             >
             Login

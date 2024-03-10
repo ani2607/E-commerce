@@ -27,7 +27,7 @@ const Navbar = () => {
       })
     }
     getCartItems();
-  },[])
+  },[items])
   console.log("items : ",items);
 
   const handleLogout = async()=>{
@@ -53,10 +53,10 @@ const Navbar = () => {
 
     return (
 
-      <nav className="flex items-center justify-between bg-gray-700 shadow-lg lg:flex-wrap lg:py-4 fixed z-10 w-full top-0">
-      <div className="flex items-center px-3 mt-0">
-        <div className="ml-2">
-          <Link className="text-4xl" to="/">
+      <nav className="flex items-center justify-between bg-gray-700 shadow-lg lg:flex-wrap lg:py-2 fixed z-10 w-full top-0">
+      <div className="flex items-center px-1 mt-0">
+        <div className="ml-1">
+          <Link className="text-5xl" to="/">
             Ecommerce
           </Link>
         </div>
@@ -68,27 +68,26 @@ const Navbar = () => {
         //   menuOpen ? 'block' : 'hidden'
         // }`}
       >
-        <li className="my-2 lg:my-0">
+        <li className="mb-1 text-2xl mt-2">
           <Link to="/">Home</Link>
         </li>
-        <li className="my-2 lg:my-0">
+        <li className="mb-1 text-2xl mt-2">
           <Link to="/about">About</Link>
         </li>
 
         {
-          (items.message)?(<li className="my-2 lg:my-0">
+          (items.message)?(<li className="mb-1 text-2xl mt-2">
           <Link to="/login">Login</Link>
-        </li>):(<li className="my-2 lg:my-0">
+        </li>):(<li className="mb-1 text-2xl mt-2">
           <button onClick={handleLogout}>Logout</button>
         </li>)
         }
-        
-        
-
-
         <li className="my-2 lg:my-0">
           <Link to="/Cart">
-            <img src={Cart} className="m-0 w-7 h-7" alt="cart" />
+            {(items)&&(items.length!=0)&& (<div className='ml-1 mt-0 z-[1000px] text-[10px]'>{items.length}</div>)}
+            <div>
+            <img src={Cart} className="mr-2 w-8 p-0 h-8 mt-0" alt="cart" />
+            </div>
           </Link>
         </li>
 

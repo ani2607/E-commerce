@@ -31,12 +31,13 @@ function Cart() {
     }
     getCartItems();
   },[items])
+
   /* items array has all the products the user had added to cart*/
   console.log("items : ",items);
   return (
     <div>
       <Navbar className="m-0"/>
-      <div className='absolute mt-[80px]'>
+      <div className='absolute mt-[80px] w-full'>
         <div>
           <h1 className="text-3xl flex text-center justify-center my-5 bg-orange-500 rounded-xl font-medium ml-[30rem] w-1/3 p-2 text-black">Total : {total}</h1>
         </div>
